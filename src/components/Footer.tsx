@@ -1,4 +1,5 @@
 import { Leaf, Heart, Lightbulb, FlaskConical } from "lucide-react";
+import ifscLogo from "@/assets/ifsc-logo.png";
 
 const Footer = () => {
   return (
@@ -36,6 +37,19 @@ const Footer = () => {
             <div className="flex items-center gap-2 text-background/70">
               <FlaskConical className="w-5 h-5 text-secondary" />
               <span className="font-medium">Ciência liberta</span>
+            </div>
+          </div>
+
+          {/* Partnership */}
+          <div className="mb-10">
+            <p className="text-background/60 text-sm font-medium mb-4">Em parceria com</p>
+            <div className="flex items-center justify-center gap-3 bg-background/10 rounded-xl p-4 backdrop-blur-sm">
+              <img 
+                src={ifscLogo} 
+                alt="IFSC - Instituto Federal de Santa Catarina" 
+                className="h-12 md:h-14 w-auto"
+              />
+              <span className="text-background font-semibold text-lg">Bilíngue</span>
             </div>
           </div>
 
