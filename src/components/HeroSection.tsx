@@ -94,7 +94,7 @@ const HeroSection = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent pointer-events-none z-10 opacity-30" />
             <div className="aspect-video">
               <iframe
-                src="https://www.youtube.com/embed/dVIRtVrZ8d4"
+                src="https://www.youtube.com/embed/CuJKJTk88zQ"
                 title="Além do Preconceito - Cannabis Medicinal em SC"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
