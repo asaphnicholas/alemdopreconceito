@@ -1,7 +1,20 @@
 import { Button } from "@/components/ui/button";
-import { Play, Leaf, ChevronDown } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Play, Leaf, ChevronDown, Mail } from "lucide-react";
+import { useState } from "react";
 
 const HeroSection = () => {
+  const [showForm, setShowForm] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (name && email) {
+      window.location.href = "https://www.instagram.com/jorge_lautert_adv?igsh=Z3BydWt0NTYwamd6";
+    }
+  };
+
   return (
     <section className="relative min-h-screen bg-hero-gradient overflow-hidden">
       {/* Animated Background Elements */}
@@ -107,6 +120,52 @@ const HeroSection = () => {
             Uma narrativa forte, humana e esclarecedora que conecta ciência, pacientes e especialistas 
             em um só propósito: <strong className="text-secondary">informar para transformar</strong>.
           </p>
+
+          {/* Newsletter CTA */}
+          <div className="mt-12 text-center">
+            {!showForm ? (
+              <Button 
+                variant="hero" 
+                size="xl" 
+                onClick={() => setShowForm(true)}
+                className="animate-pulse-glow"
+              >
+                <Mail className="h-5 w-5" />
+                Quer saber mais sobre a Cannabis medicinal?
+              </Button>
+            ) : (
+              <div className="max-w-md mx-auto bg-primary-foreground/10 backdrop-blur-sm p-8 rounded-2xl border border-primary-foreground/20 animate-fade-up">
+                <h3 className="text-xl font-bold text-primary-foreground mb-2">
+                  Entre em nossa Newsletter semanal de conteúdos!
+                </h3>
+                <p className="text-primary-foreground/70 text-sm mb-6">
+                  Receba informações exclusivas sobre cannabis medicinal diretamente no seu e-mail.
+                </p>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <Input
+                    type="text"
+                    placeholder="Seu nome"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
+                  />
+                  <Input
+                    type="email"
+                    placeholder="Seu e-mail"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
+                  />
+                  <Button type="submit" variant="hero" size="lg" className="w-full">
+                    <Mail className="h-5 w-5" />
+                    Inscrever-se
+                  </Button>
+                </form>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Scroll Indicator */}
